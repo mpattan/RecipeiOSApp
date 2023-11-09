@@ -4,7 +4,7 @@
 //
 //  Created by Sarfraz Khan on 06/11/23.
 //
-
+// This is the ViewModel for Meal Details
 
 import Foundation
 import Combine
@@ -19,7 +19,8 @@ class MealDetailViewModel: ObservableObject {
     @Published var isError = false
     
     private var cancellables: Set<AnyCancellable> = []
-
+    
+    // Hitting the given endpoint to fetch the details of a meal recipe
     func fetchMealDetails(mealID: String) {
         guard let url = URL(string: "https://themealdb.com/api/json/v1/1/lookup.php?i=\(mealID)") else {
             return
