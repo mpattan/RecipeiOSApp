@@ -4,6 +4,7 @@
 //
 //  Created by Sarfraz Khan on 08/11/23.
 //
+//  This file contains the code related to the cards on the home page (ContentView.Swift)
 
 import SwiftUI
 
@@ -13,8 +14,14 @@ struct MealCardView: View {
     @Environment(\.colorScheme) var colorScheme
 
     var body: some View {
+        
+        // This navigation link is to access the specific instructions of each meal
+        
         NavigationLink(destination: MealDetailView(mealID: meal.idMeal, textSize: textSize)) {
             VStack(spacing: cardConstants.contentSpacing) {
+                
+                // Fetching images asynchronously so the App does not freeze while the fetch is in progress
+                
                 AsyncImage(url: URL(string: meal.strMealThumb) ?? URL(string: cardConstants.defaultText))
                 { image in
                     image
@@ -45,6 +52,7 @@ struct MealCardView: View {
     }
 }
 
+// Edit the constants below to adjust styling
 private struct cardConstants {
     static let imageHeight: CGFloat = 150
     static let cornerRadius: CGFloat = 10

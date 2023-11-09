@@ -4,6 +4,7 @@
 //
 //  Created by Sarfraz Khan on 08/11/23.
 //
+//  This file contains model for the MealDetail
 
 import Foundation
 

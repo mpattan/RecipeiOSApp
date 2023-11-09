@@ -4,6 +4,7 @@
 //
 //  Created by Sarfraz Khan on 06/11/23.
 //
+// This is the ViewModel for the meals
 
 import Foundation
 
@@ -26,6 +27,7 @@ class MealsViewModel: ObservableObject {
     @Published private var isError = false
     private let categoryURL = "https://themealdb.com/api/json/v1/1/filter.php?c=Dessert"
 
+    // Hitting the given endpoint to fetch the list of meals
     func fetchDessertMeals() {
         guard let url = URL(string: categoryURL) else {
             return
@@ -58,6 +60,7 @@ class MealsViewModel: ObservableObject {
         }.resume()
     }
     
+    // This function implements the search functionality on the home page of the app
     func filteredMeals(searchText: String) -> [Meal] {
             if searchText.isEmpty {
                 return meals
